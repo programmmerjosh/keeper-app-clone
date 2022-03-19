@@ -1,12 +1,19 @@
 import React from "react";
+import DeleteSweepRoundedIcon from '@mui/icons-material/DeleteSweepRounded';
 
-function Note() {
-    let title = "This is the note title";
-    let content = "This is the note content";
-    return <div className="note">
-        <h1>{title}</h1>
-        <p>{content}</p>
-    </div>;
-}
-
-export default Note;
+function Note(props) {
+    function handleClick() {
+      props.onDelete(props.id);
+    }
+  
+    return (
+      <div className="note">
+        <h1>{props.title}</h1>
+        <p>{props.content}</p>
+        <button onClick={handleClick}>
+        <DeleteSweepRoundedIcon /></button>
+      </div>
+    );
+  }
+  
+  export default Note;
